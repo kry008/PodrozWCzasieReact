@@ -1,3 +1,8 @@
+@font-face {
+  font-family: LCDFONT;
+  src: url(./FONT.TTF);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,9 +12,48 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
   color: bisque;
+  font-family: LCDFONT !important;
+  font-size: larger;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#calc
+{
+  width: 500px;
+  height: 90vh;
+  margin: 10px auto; 
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+
+}
+
+.button
+{
+  border: 1px solid red;
+  width: 123px;
+  height: 121px;
+  float: left;
+  margin: 0;
+}
+#panel
+{
+  margin: 0 auto;
+}
+
+#dw
+{
+  background-color: darkolivegreen;
+  width: 100%;
+  height: 10%;
+  color: darkgray;
+}
+
+#mv
+{
+  width: 100%;
+  height: 5%;
 }
