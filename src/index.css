@@ -47,13 +47,20 @@ code {
 #dw
 {
   background-color: darkolivegreen;
-  width: 100%;
+  width: calc(100% - 10px);
   height: 10%;
+  padding: 5px;
   color: darkgray;
+  text-align: right;
+  font-size: 3em;
+  line-height: 1.8em;
 }
 
-#mv
+#mw
 {
-  width: 100%;
+  margin: 15px 5px 5px -10px;
+  width: calc(100% - 10px);
   height: 5%;
+  text-align: right;
+  line-height: 1.8em;
 }
