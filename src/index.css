@@ -33,25 +33,22 @@ code {
 
 .button
 {
-  border: 1px solid red;
   width: 123px;
-  height: 121px;
-  float: left;
-  margin: 0;
-  text-align: center;
-  font-size: 3em;
   line-height: 2.8em;
 }
 .button1
 {
-  border: 1px solid red;
   width: 498px;
+  line-height: 2.3em;
+}
+.button1, .button
+{
+  border: 1px solid red;
   height: 121px;
   float: left;
   margin: 0;
   text-align: center;
   font-size: 3em;
-  line-height: 2.3em;
 }
 #panel
 {
