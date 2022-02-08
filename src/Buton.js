@@ -6,6 +6,6 @@ export default class Buton extends React.Component {
         this.state = {}
     }
     render() {
-        return (<div className="button" item={this.props.item} onClick={this.props.onClick} id={this.props.item}>{this.props.item}</div>)
+        return (<div className="button" className={this.props.item === "↤" ? "button1" : "button"} item={this.props.item} onClick={this.props.onClick} id={this.props.item}>{this.props.item}</div>)
     }
 }

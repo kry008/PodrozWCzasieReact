@@ -12,11 +12,50 @@ export default class Calculator extends React.Component {
             hHelping: [],
             firstNumber: "",
             operator: "",
-            helpingWindow: ""
+            helpingWindow: "",
+            history: 0
         };
         this.buttons = this.buttons.bind(this)
+        this.addHistory = this.addHistory.bind(this)
         this.equal = this.equal.bind(this)
+        this.hist = this.hist.bind(this)
     }
+    hist()
+    {
+        if (this.state.history === 0) {
+            alert("Brak kolejnych elementów w historii")
+        } else {
+            var hNumber = this.state.hNumber
+            var hHelping = this.state.hHelping
+            var hNumberLast = hNumber[hNumber.length - 1]
+            var hHelpingLast = hHelping[hHelping.length - 1]
+            var history = this.state.history - 1
+            hNumber.pop()
+            hHelping.pop()
+            this.setState({
+                number: hNumberLast,
+                helpingWindow: hHelpingLast,
+                history: history
+            })
+
+        }
+    }
+    addHistory(result, firstNumber, number, operator, hHelping, hNumber, history)
+    {
+        var t2 = firstNumber + " " + operator + " " + Number(number)
+        var t3 = hHelping
+        var t4 = result
+        var t5 = hNumber
+        var t6 = history + 1
+        t3.push(t2)
+        t5.push(t4)
+        this.setState({
+            hHelping: t3,
+            hNumber: t5,
+            history: t6
+        })
+    }
+
     equal()
     {
         var t1 = this.state.helpingWindow + " " + this.state.number
@@ -27,26 +66,18 @@ export default class Calculator extends React.Component {
         switch (this.state.operator) {
             case '*':
                 result = this.state.firstNumber * Number(this.state.number)
-                var t2 = this.state.firstNumber + " * " + Number(this.state.number)
-                var t3 = this.state.hHelping
-                var t4 = result
-                var t5 = this.state.hNumber
-                t3.push(t2)
-                t5.push(t4)
-                console.log(t2)
-                console.log(t3)
-                console.log(t4)
-                console.log(t5)
-                this.setState({
-                    hHelping: t3,
-                    hNumber: t5
-                })
+                this.addHistory(result, this.state.firstNumber, this.state.number, "*", this.state.hHelping, this.state.hNumber, this.state.history)
+                
                 break;
             case '+':
                 result = this.state.firstNumber + Number(this.state.number)
+                this.addHistory(result, this.state.firstNumber, this.state.number, "+", this.state.hHelping, this.state.hNumber, this.state.history)
+                
                 break;
             case '-':
                 result = this.state.firstNumber - Number(this.state.number)
+                this.addHistory(result, this.state.firstNumber, this.state.number, "-", this.state.hHelping, this.state.hNumber, this.state.history)
+                
                 break;
             case '/':
                 if(Number(this.state.number) === 0)
@@ -58,11 +89,12 @@ export default class Calculator extends React.Component {
                         number: 0,
                         helpingWindow: ''
                     })
-                    
                 }
                 else
                 {
                     result = this.state.firstNumber / Number(this.state.number)
+                    this.addHistory(result, this.state.firstNumber, this.state.number, "/", this.state.hHelping, this.state.hNumber, this.state.history)
+                
                 }
                 break;
         
@@ -95,8 +127,9 @@ export default class Calculator extends React.Component {
             case '=':
                 this.equal(item);
             break;
-            case '«':
+            case '↤':
                 //back
+                this.hist()
             break;
             case 'C':
                 //Clear
@@ -141,7 +174,7 @@ export default class Calculator extends React.Component {
                     <Buton key="0" item="0" onClick={this.buttons} />
                     <Buton key="C" item="C" onClick={this.buttons} />
                     <Buton key="+" item="+" onClick={this.buttons} />
-                    <Buton key="«" item="«" onClick={this.buttons} />
+                    <Buton key="↤" item="↤" onClick={this.buttons} />
                 </div>
             </div>
         )
