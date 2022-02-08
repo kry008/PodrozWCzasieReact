@@ -87,3 +87,11 @@ code {
 {
   background-color: rgba(0, 0, 0, 0);
 }
+
+#madeBy{
+  text-align: center;
+}
+#madeBy::selection{
+  background-color: rgb(224, 255, 255);
+  color: black;
+}

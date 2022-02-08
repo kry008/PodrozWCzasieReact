@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     <Calculator />
+    <div id='madeBy'>Made by KRY008 - 2022</div>
   </React.StrictMode>,
   document.getElementById('root')
 );
