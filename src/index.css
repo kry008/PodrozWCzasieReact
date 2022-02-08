@@ -49,6 +49,13 @@ code {
   margin: 0;
   text-align: center;
   font-size: 3em;
+  transition: 0.2s;
+}
+
+.button1:hover, .button:hover
+{
+  background-color: rgb(39, 9, 9);
+  color: #fdc674;
 }
 #panel
 {
